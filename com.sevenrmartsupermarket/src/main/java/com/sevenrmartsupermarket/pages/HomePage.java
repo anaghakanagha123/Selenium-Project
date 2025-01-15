@@ -14,6 +14,10 @@ public class HomePage {
 
 	@FindBy(xpath = "//div[@class='user-panel mt-3 pb-3 mb-3 d-flex']//div/a[@class='d-block']")
 	WebElement profileName;
+	@FindBy(xpath = "//a[@class='nav-link']//p[contains(text(),'Admin Users')]")
+	WebElement adminUsersOption;
+	@FindBy(xpath = "//p[normalize-space()='Manage Users']")
+	WebElement manageUsersOption;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -29,7 +33,11 @@ public class HomePage {
 		WebElement tile = driver
 				.findElement(By.xpath("//div[@class='inner']//p[contains(text(),'" + name + "')]//following::a[1]"));
 		pageUtility.scrollAndClick(tile);
-
 	}
-	
+	public void clickAdminUsersOption() {
+		adminUsersOption.click();
+	}
+	public void clickManageUsersOption() {
+		manageUsersOption.click();
+	}
 }

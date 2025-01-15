@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.sevenrmartsupermarket.constants.Constants;
+import com.sevenrmartsupermarket.utilities.WaitUtility;
 
 public class LoginPage {
 	WebDriver driver;
@@ -45,7 +46,10 @@ public class LoginPage {
 	}
 
 	public void clickOnSignInButton() {
+		WaitUtility waitutility=new WaitUtility(driver);
+		waitutility.waitForElementToBeClickable(signInButton, 30);
 		signInButton.click();
+		
 	}
 
 	public void login(String userName, String password) {

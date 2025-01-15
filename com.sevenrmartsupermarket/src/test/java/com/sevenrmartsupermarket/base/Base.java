@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import com.sevenrmartsupermarket.constants.Constants;
 import com.sevenrmartsupermarket.utilities.ScreenshotCapture;
@@ -52,19 +53,26 @@ public class Base {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT));
 		driver.manage().deleteAllCookies();
 	}
-
-	@BeforeMethod
+	
+	@BeforeMethod(enabled = true,alwaysRun = true)
 	public void launchApplication() {
 		String browser = properties.getProperty("browser");
 		String url = properties.getProperty("url");
 		initialize(browser, url);
 	}
+	
+	@BeforeMethod(enabled = false)
+	@Parameters("browser")
+	public void launchApplication(String browser) {
+		String url = properties.getProperty("url");
+		initialize(browser, url);
+	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void terminateSession(ITestResult itestResult) {
 
 		if (itestResult.getStatus() == ITestResult.FAILURE) {
-			
+
 			screenshotcapture.takeScreenshot(driver, itestResult.getName());
 		}
 	}

@@ -1,26 +1,23 @@
- <suite name="SuitName" thread-count="10" parallel="methods"> 
- 	<test name="TestName"> 
- 		<classes> 
- 			<class name="basics.LaunchBrowser"> 
- 				<methods> 
- 					<include name="verifyFlipkartTitle"> 
- 					</include> 
- 				</methods> 
- 			</class> 
- 			<class name="basics.RadioButtonTest"> 
- 			</class> 
- 			<class name="basics.FacebookExample"> 
- 			</class> 
- 			<class name="basics.TableExample"> 
- 			</class> 
- 		</classes> 
- 		<classes> 
- 			<class name="basics.FacebookExample"> 
- 			</class> 
- 			<class name="basics.FacebookExample"> 
- 			</class> 
- 		</classes> 
- 	</test> 
- </suite>
- 
+<suite name="sevenmartSuite" thread-count="5" parallel="tests">
+	<listeners>
+		<listener
+			class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"></listener>
+	</listeners>
+
+	<test name="smokeTest">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.LoginTest">
+			</class>
+		</classes>
+	</test>
+
+	<test name="regressionTest">
+		<classes>
+			<class name="com.sevenrmartsupermarket.tests.ManageNewsTest">
+			</class>
+		</classes>
+	</test>
+
+</suite> 
+ 	
  

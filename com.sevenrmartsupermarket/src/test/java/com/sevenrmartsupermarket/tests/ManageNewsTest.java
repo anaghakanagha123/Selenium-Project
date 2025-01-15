@@ -17,7 +17,7 @@ public class ManageNewsTest extends Base {
 	LoginPage loginPage;
 	ScreenshotCapture screenshotcapture;
 
-	@Test
+	@Test(groups = "smokeTest") //@Test(groups={"smoke","regression"})
 	public void verifyNewCreation() {
 		loginPage = new LoginPage(driver);
 		homepage = new HomePage(driver);
@@ -32,8 +32,4 @@ public class ManageNewsTest extends Base {
 		System.out.println(data);
 	}
 	
-	@Test
-	public void screenshot() {
-		
-	}
 }
