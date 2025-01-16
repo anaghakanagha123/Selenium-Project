@@ -14,7 +14,7 @@ public class AdminUsersTest extends Base {
 	HomePage homepage;
 	AdminUsersPage adminUsersPage;
 
-	@Test(groups = "regressionTest")
+	@Test(retryAnalyzer = com.sevenrmartsupermarket.listeners.RetryAnalyzer.class)
 	public void createNewAdminUser() {
 		loginpage = new LoginPage(driver);
 		homepage = new HomePage(driver);
