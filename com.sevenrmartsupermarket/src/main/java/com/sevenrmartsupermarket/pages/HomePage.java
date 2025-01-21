@@ -34,8 +34,9 @@ public class HomePage {
 				.findElement(By.xpath("//div[@class='inner']//p[contains(text(),'" + name + "')]//following::a[1]"));
 		pageUtility.scrollAndClick(tile);
 	}
-	public void clickAdminUsersOption() {
+	public AdminUsersPage clickAdminUsersOption() {
 		adminUsersOption.click();
+		return new AdminUsersPage(driver);
 	}
 	public void clickManageUsersOption() {
 		manageUsersOption.click();

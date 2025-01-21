@@ -17,16 +17,11 @@ public class AdminUsersTest extends Base {
 	@Test(retryAnalyzer = com.sevenrmartsupermarket.listeners.RetryAnalyzer.class)
 	public void createNewAdminUser() {
 		loginpage = new LoginPage(driver);
-		homepage = new HomePage(driver);
-		adminUsersPage = new AdminUsersPage(driver);
-		loginpage.login();
-		homepage.clickAdminUsersOption();
+		homepage = loginpage.login();
+		adminUsersPage = homepage.clickAdminUsersOption();
 		homepage.clickManageUsersOption();
-		adminUsersPage.clickNewButton();
-		adminUsersPage.enterUserName("sevenmartuser");
-		adminUsersPage.enterPassword("sevenmart");
-		adminUsersPage.selectUserType("Staff");
-		adminUsersPage.clickSaveButton();
+		adminUsersPage.clickNewButton().enterUserName("sevenmartuser").enterPassword("sevenmart")
+				.selectUserType("Staff").clickSaveButton();
 		Assert.assertTrue(adminUsersPage.getAlertStatus());
 	}
 }

@@ -30,23 +30,28 @@ public class AdminUsersPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	public void clickNewButton() {
+	public AdminUsersPage clickNewButton() {
 		newButton.click();
+		return this;
 	 }
-	 public void enterUserName(String username) {
+	 public AdminUsersPage enterUserName(String username) {
 		 userNameField.sendKeys(username);
+		 return this;
 	 }
-	 public void enterPassword(String password) {
+	 public AdminUsersPage enterPassword(String password) {
 		 passwordField.sendKeys(password);
+		 return this;
 	}
-	 public void selectUserType(String value) {
+	 public AdminUsersPage selectUserType(String value) {
 		 Select select=new Select(userTypeDrowpdown);
 		 select.selectByVisibleText(value);
+		 return this;
 	}
-	 public void clickSaveButton() {
+	 public AdminUsersPage clickSaveButton() {
 		 WaitUtility waitutility=new WaitUtility(driver);
 		 waitutility.waitForElementToBeClickable(saveButton, 10);
 		 saveButton.click();
+		 return this;
 	}	
 	 public boolean getAlertStatus() {
 		 boolean alertStatus=successAlert.isDisplayed();
